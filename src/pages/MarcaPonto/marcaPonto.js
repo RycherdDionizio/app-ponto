@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
 import * as Animatable from 'react-native-animatable';
 import { useNavigation } from '@react-navigation/native'
+import { LogBox } from 'react-native';
+
+LogBox.ignoreAllLogs(); // Isso irá desativar todos os avisos amarelos
 
 export default function Clock() {
   const navigation = useNavigation();
@@ -26,7 +29,10 @@ export default function Clock() {
   return (
     <View style={styles.container}>
       <Animatable.View animation="fadeInLeft" delay={500} style={styles.containerHeader}>
+      <View style={styles.headerContent}>
+        <Image style={styles.imagemFuturo} source={require('../../../assets/logoFuturo.png')} />
         <Text style={styles.message}>Bater o ponto</Text>
+        </View>
       </Animatable.View>
 
       <Animatable.View animation="fadeInUp" style={styles.containerForm}>
@@ -51,13 +57,19 @@ export default function Clock() {
           <Text style={styles.text}>{`Hora: ${hour}:${minute}:${second}`}</Text>
         </View>
 
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity style={styles.button}
+            onPress={() => navigation.navigate('humor')}>
           <Text style={styles.buttonText}>Salvar</Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.button}
             onPress={() => navigation.navigate('ajustarPonto')}>
           <Text style={styles.buttonText}>Ajustar ponto</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.button}
+            onPress={() => navigation.navigate('historicoPonto')}>
+          <Text style={styles.buttonText}>Histórico Ponto</Text>
         </TouchableOpacity>
         <View style={{ marginBottom: 20 }} />
       </Animatable.View>
@@ -83,6 +95,7 @@ const styles = StyleSheet.create({
     fontSize: 28,
     fontWeight: 'bold',
     color: '#FFF',
+    marginLeft: 20
   },
   containerForm: {
     backgroundColor: '#FFF',
@@ -104,7 +117,7 @@ const styles = StyleSheet.create({
   button: {
     backgroundColor: '#132F48',
     width: '100%',
-    borderRadius: 4,
+    borderRadius: 20,
     paddingVertical: 8,
     marginTop: 14,
     justifyContent: 'center',
@@ -115,4 +128,12 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     alignSelf: 'center',
   },
+  imagemFuturo: {
+    width: 50,
+    height: 50
+  },
+  headerContent: {
+    flexDirection: 'row', // Organiza o texto e a imagem em uma linha
+    alignItems: 'center', // Centraliza verticalmente
+  }
 });
