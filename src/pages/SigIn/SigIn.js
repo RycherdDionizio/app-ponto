@@ -9,7 +9,10 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Animatable.View animation="fadeInLeft" delay={500} style={styles.containerHeader}>
-        <Text style={styles.message}>Bem-vindo(a)</Text>
+        <View style={styles.headerContent}>
+        <Image style={styles.imagemFuturo} source={require('../../../assets/logoFuturo.png')} />
+          <Text style={styles.message}>Bem-vindo(a)</Text>
+        </View>
       </Animatable.View>
 
       <Animatable.View animation="fadeInUp" style={styles.containerForm}>
@@ -50,7 +53,8 @@ const styles = StyleSheet.create({
   message: {
     fontSize: 28,
     fontWeight: 'bold',
-    color: '#FFF'
+    color: '#FFF',
+    marginLeft: 20
   },
   containerForm: {
     backgroundColor: '#FFF',
@@ -73,7 +77,7 @@ const styles = StyleSheet.create({
   button: {
     backgroundColor: "#132F48",
     width: '100%',
-    borderRadius: 4,
+    borderRadius: 20,
     paddingVertical: 8,
     marginTop: 14,
     justifyContent: 'center'
@@ -91,5 +95,12 @@ const styles = StyleSheet.create({
   registerText: {
     color: '#a1a1a1'
   },
-  
+  headerContent: {
+    flexDirection: 'row', // Organiza o texto e a imagem em uma linha
+    alignItems: 'center', // Centraliza verticalmente
+  },
+  imagemFuturo: {
+    width: 50,
+    height: 50
+  }
 });
