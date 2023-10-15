@@ -21,7 +21,7 @@ export default function PointListScreen() {
           <Text style={styles.message}>Cartão Ponto</Text>
         </View>
       </Animatable.View>
-
+  
       <FlatList
         style={styles.containerForm}
         data={pointsData}
