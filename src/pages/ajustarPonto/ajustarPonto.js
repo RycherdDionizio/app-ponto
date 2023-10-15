@@ -9,7 +9,7 @@ import { View,
 import * as Animatable from 'react-native-animatable';
 
 
-export default function ajustarPonto() {
+export default function AjustarPonto() {
 
   return (        
         
