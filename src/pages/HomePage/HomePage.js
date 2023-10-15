@@ -38,7 +38,7 @@ export default function HomePage() {
 
                     <View style={styles.NavigationButton}>
                       <TouchableOpacity
-                        onPress={() => navigation.navigate('ajustarPonto')}
+                        onPress={() => navigation.navigate('AjustarPonto')}
                         style={styles.Button}>
                         <View style={styles.ImageButton}>
                           <Image
@@ -64,7 +64,7 @@ export default function HomePage() {
 
                     <View style={styles.NavigationButton}>
                       <TouchableOpacity
-                        onPress={() => navigation.navigate('')}
+                        onPress={() => navigation.navigate('Indicadores')}
                         style={styles.Button}>
                         <View style={styles.ImageButton}>
                           <Image
@@ -77,7 +77,7 @@ export default function HomePage() {
 
                     <View style={styles.NavigationButton}>
                       <TouchableOpacity
-                        onPress={() => navigation.navigate('')}
+                        onPress={() => navigation.navigate('DadosCadastrais')}
                         style={styles.Button}>
                         <View style={styles.ImageButton}>
                           <Image

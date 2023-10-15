@@ -63,7 +63,7 @@ export default function Clock() {
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.button}
-            onPress={() => navigation.navigate('ajustarPonto')}>
+            onPress={() => navigation.navigate('AjustarPonto')}>
           <Text style={styles.buttonText}>Ajustar ponto</Text>
         </TouchableOpacity>
 

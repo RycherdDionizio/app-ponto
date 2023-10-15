@@ -3,8 +3,10 @@ import SigIn from '../pages/SigIn/SigIn'
 import Wellcome from '../pages/Wellcome/Wellcome';
 import HomePage from '../pages/HomePage/HomePage';
 import MarcaPonto from '../pages/MarcaPonto/marcaPonto'
-import ajustarPonto from '../pages/ajustarPonto/ajustarPonto'
+import AjustarPonto from '../pages/ajustarPonto/ajustarPonto'
 import historicoPonto from '../pages/HistoricoPontos/HistoricoPontos';
+import Indicadores from '../pages/Indicadores/Indicadores';
+import DadosCadastrais from '../pages/DadosCadastrais/DadosCadastrais';
 import RegistrarPonto from '../pages/RegistrarPonto/RegistrarPonto';
 import humor from '../pages/humor/humor';
 const Stack = createNativeStackNavigator();
@@ -35,8 +37,8 @@ export default function Routes() {
         options={{ headerShown: false }}
       />
       <Stack.Screen
-        name="ajustarPonto" 
-        component={ajustarPonto}
+        name="AjustarPonto" 
+        component={AjustarPonto}
         options={{ headerShown: false }}
       />
 
@@ -54,6 +56,18 @@ export default function Routes() {
       <Stack.Screen
         name="RegistrarPonto" 
         component={RegistrarPonto}
+        options={{ headerShown: false }}
+      />
+
+      <Stack.Screen
+        name="Indicadores" 
+        component={Indicadores}
+        options={{ headerShown: false }}
+      />
+
+      <Stack.Screen
+        name="DadosCadastrais" 
+        component={DadosCadastrais}
         options={{ headerShown: false }}
       />
     </Stack.Navigator>
