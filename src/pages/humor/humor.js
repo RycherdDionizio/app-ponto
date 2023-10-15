@@ -13,8 +13,8 @@ const MoodPopup = ({ isVisible, onClose }) => {
       const timer = setTimeout(() => {
         setSuccessMessageVisible(false);
         // Navegue de volta para a tela de batidas
-        navigation.navigate('MarcaPonto'); // Substitua 'Batidas' pelo nome da sua tela de batidas
-      }, 2000);
+        navigation.navigate('RegistrarPonto'); // Substitua 'Batidas' pelo nome da sua tela de batidas
+      }, 1000);
 
       return () => clearTimeout(timer);
     }
@@ -62,9 +62,7 @@ const MoodPopup = ({ isVisible, onClose }) => {
           <Text style={styles.successMessage}>
             {successMessageVisible && 'Ponto batido com sucesso'}
           </Text>
-          <TouchableOpacity onPress={onClose} style={styles.closeButton}>
-            <Text>Fechar</Text>
-          </TouchableOpacity>
+
         </View>
       </View>
     </Modal>

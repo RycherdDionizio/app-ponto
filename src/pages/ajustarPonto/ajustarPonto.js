@@ -18,7 +18,7 @@ export default function ajustarPonto() {
         <Animatable.View animation="fadeInLeft" delay={500} style={styles.containerHeader}>
           <View style={styles.headerContent}>
           <Image style={styles.imagemFuturo} source={require('../../../assets/logoFuturo.png')} />
-            <Text style={styles.message}>Lista de Pontos Batidos</Text>
+            <Text style={styles.message}>Ajustar Ponto</Text>
           </View>
       </Animatable.View>
 
@@ -86,7 +86,7 @@ export default function ajustarPonto() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FABD7B',
+    backgroundColor: '#132F48',
   },
 
   header: {
