@@ -1,106 +1,147 @@
 import React from 'react';
-import { Image, View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
-import * as Animatable from 'react-native-animatable';
-
-import { useNavigation } from '@react-navigation/native'
+import { useNavigation } from '@react-navigation/native';
+import { Image,
+         View,
+         Text,
+         StyleSheet,
+         TextInput,
+         TouchableOpacity
+        } from 'react-native';
 
 export default function App() {
+
   const navigation = useNavigation();
+  const systemUsers = [
+    ['gabriel.ajala@grupo-eagle.com', '12345678'],
+    ['rycherd.dionizio@grupo-eagle.com', '12345678']
+  ]
+
   return (
     <View style={styles.container}>
-      <Animatable.View animation="fadeInLeft" delay={500} style={styles.containerHeader}>
-        <View style={styles.headerContent}>
-        <Image style={styles.imagemFuturo} source={require('../../../assets/logoFuturo.png')} />
-          <Text style={styles.message}>Bem-vindo(a)</Text>
+      <View style={styles.containerSigin}>
+        <View style={styles.containerLogo}>
+          <Image
+            source={require('../../../assets/Logomarca_Futuro_azul.png')}
+            style={styles.logoImage}
+            />
+              <Text style={styles.sloganText}>
+                Central do Colaborador
+              </Text>
         </View>
-      </Animatable.View>
 
-      <Animatable.View animation="fadeInUp" style={styles.containerForm}>
-        <Text style={styles.title}>Email</Text>
-        <TextInput
-          placeholder='Digite um email...'
-          style={styles.input}
-        />
-        <Text style={styles.title}>Senha </Text>
-        <TextInput
-          placeholder='Sua senha'
-          style={styles.input}
-        />
+        <View style={styles.containerInputs}>
 
-        <TouchableOpacity style={styles.button}
-        onPress={() => navigation.navigate('MarcaPonto')}>
-          <Text style={styles.buttonText}>Acessar</Text>
-        </TouchableOpacity>
+          <Text style={styles.loginText}>E-mail:</Text>
+                  <TextInput
+                    keyboardType={"email-address"}
+                    editable
+                    placeholder="seu.email@dominio.com"
+                    numberOfLines={2}
+                    style={styles.loginInput}/>
 
-        <TouchableOpacity style={styles.buttonRegister}>
-          <Text style={styles.registerText}>Não possui uma conta? Cadastre-se</Text>
-        </TouchableOpacity>
-      </Animatable.View>
+          <Text style={styles.loginText}>Senha:</Text>
+                  <TextInput
+                    secureTextEntry={true}
+                    editable
+                    placeholder="********"
+                    numberOfLines={2}
+                    style={styles.loginInput}/>
+
+        </View>
+
+        <View style={styles.containerButton}>
+          <TouchableOpacity
+              style={styles.button}
+              onPress={() => navigation.navigate('HomePage')}
+              >
+              <Text style={styles.textButton}>Entrar</Text>
+          </TouchableOpacity>
+        </View>
+
+      </View>
     </View>
   )
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#FABD7B'
+    backgroundColor: "#132F48",
+    width: "100%",
+    height: "100%",
+    justifyContent: "center",
+    alignItems: "center"
   },
-  containerHeader: {
-    marginTop: '14%',
-    marginBottom: '8%',
-    paddingStart: '5%'
+
+  containerSigin: {
+    backgroundColor: "#FFFFFF",
+    width: "90%",
+    height: "80%",
+    minHeight: 600,
+    alignItems: "center",
+    borderRadius: 20
   },
-  message: {
-    fontSize: 28,
-    fontWeight: 'bold',
-    color: '#FFF',
-    marginLeft: 20
+
+  containerLogo:{
+    marginTop: "10%",
+    width: "80%",
+    height: "20%",
+    alignItems: "center",
+    justifyContent: "center"
+},
+
+logoImage: {
+    width: "100%",
+    height: "100%",
+    resizeMode: 'center',
   },
-  containerForm: {
-    backgroundColor: '#FFF',
-    flex: 1,
-    borderTopLeftRadius: 25,
-    borderTopRightRadius: 35,
-    paddingStart: '5%',
-    paddingEnd: '5%'
+
+  sloganText: {
+    color:"#132F48", 
+    fontSize: 20,  
+    padding:5,
+    paddingLeft: 20,
+    width:"90%",
+    textAlign: "center"
   },
-  title: {
+
+  containerInputs: {
+    width: "90%",
+    height: "40%"
+  },
+
+  loginText: {
+    marginTop: "10%",
+    color: "#132F48",
+    fontSize: 20
+  },
+
+  loginInput: {
+    marginTop: "2%",
     fontSize: 20,
-    marginTop: 28,
+    borderEndWidth : 1,
+    borderBottomWidth : 1,
+    borderColor: "#132F48"
   },
-  input: {
-    borderBottomWidth: 1,
-    height: 40,
-    marginBottom: 12,
-    fontSize: 16
+
+  containerButton: {
+    marginTop: 50,
+    width: "100%",
+    height: "10%",
+    alignItems: "center",
+    justifyContent: "center"
   },
+
   button: {
     backgroundColor: "#132F48",
-    width: '100%',
-    borderRadius: 20,
-    paddingVertical: 8,
-    marginTop: 14,
-    justifyContent: 'center'
+    width: "90%",
+    alignItems: "center",
+    borderRadius: 5
   },
-  buttonText: {
-    color: '#FFF',
-    fontSize: 18,
-    fontWeight: 'bold',
-    alignSelf: 'center'
-  },
-  buttonRegister: {
-    marginTop: 14,
-    alignSelf: 'center'
-  },
-  registerText: {
-    color: '#a1a1a1'
-  },
-  headerContent: {
-    flexDirection: 'row', // Organiza o texto e a imagem em uma linha
-    alignItems: 'center', // Centraliza verticalmente
-  },
-  imagemFuturo: {
-    width: 50,
-    height: 50
+
+  textButton: {
+    color: "#FFFFFF",
+    fontSize: 20,
+    fontWeight: "bold",
+    padding: 10
   }
 });
